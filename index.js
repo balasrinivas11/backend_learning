@@ -33,12 +33,12 @@ app.get('/users',(req,res)=>{
 
 app.post('/users', async (req, res) => {
     const { username, email, password } = req.body;
-    await userModel.create({
+    const newUser=await userModel.create({
         username:username,
         email:email,
         password:password
     })
-    res.send('User created successfully');
+    res.send(newUser);
 });
         
 
